@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>หัวเว็บ</title>
 </head>
-<body class="p-3 m-0 border-0 bd-example m-0 border-0">
+<body>
 <nav>
     <div class="container">
         <div class="nav-con">
