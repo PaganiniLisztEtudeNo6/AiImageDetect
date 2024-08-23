@@ -14,7 +14,7 @@
     <div class="container">
         <div class="nav-con">
             <div class="logo">
-                <a href="webscan.php"><img src="img/botanica.png" alt="" width="130px" height="110px"></a>
+                <a href="webscan.php"><img src="img/botanica.png" alt="" width="130px" height="100px"></a>
             </div>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Option</a>
