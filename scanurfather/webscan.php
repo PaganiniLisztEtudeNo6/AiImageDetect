@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Flowers Scanner</h1>
+        <h1>Flowers Scanner หำเล็ก</h1>
         <p>สแกนดอกไม้ออนไลน์จากภาพไฟล์</p>
 
         <div class="upload-area">
