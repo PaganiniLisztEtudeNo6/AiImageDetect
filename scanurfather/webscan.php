@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="th">
-<?php include("git/AiImageDetect/scanurfather/headwebscan.php");?>
+<?php include("AiImageDetect/scanurfather/headwebscan.php");?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
