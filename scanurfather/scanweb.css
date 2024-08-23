@@ -32,8 +32,8 @@ label {
 
 /* หัวเว็บ */
 .container {
-    max-width: 1140px;
-    /* border: 1px solid red; */
+    max-width: 100%;
+    border: 1px solid red;
 }
 
 nav {
