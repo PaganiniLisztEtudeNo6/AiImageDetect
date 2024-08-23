@@ -12,8 +12,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>สแกนดอกไม้</h1>
-        <p>อ่าน ดอกไม้ ออนไลน์จากภาพไฟล์</p>
+        <h1>Flowers Scanner</h1>
+        <p>สแกนดอกไม้ออนไลน์จากภาพไฟล์</p>
 
         <div class="upload-area">
             <label for="formFileLg" class="form-label">เลือกไฟล์</label>
