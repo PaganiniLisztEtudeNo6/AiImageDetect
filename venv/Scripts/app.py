@@ -20,6 +20,23 @@ def testPost():
     b = request.json['b']
     return jsonify({'a': a , 'b': b})
 
+@app.route('/login', methods=['POST'])
+def login():
+    user = "sakthan"
+    password = "12345"
+    if request.json['username'] == user and request.json['password'] == password:
+        return jsonify({'message': 'Login successful'})
+    else:
+        return jsonify({'message': 'Login failed'})
+
+@app.route('/login2', methods=['GET'])
+def login2():
+    a = int (input("Enter a number: "))
+    b = int (input("Enter a number: "))
+    num = add_numbers(a,b)
+    return jsonify({'num': num})
+
+
 @app.route('/uploadImage', methods=['POST'])
 def upload_image():
     
