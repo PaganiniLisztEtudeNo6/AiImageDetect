@@ -14,6 +14,12 @@ def hello():
     return jsonify({'output': a , 'message': 'Hello World!'})
 
 
+@app.route('/testPost', methods=['POST'])
+def testPost():
+    a = request.json['a']
+    b = request.json['b']
+    return jsonify({'a': a , 'b': b})
+
 @app.route('/uploadImage', methods=['POST'])
 def upload_image():
     
@@ -25,15 +31,16 @@ def upload_image():
     if file.filename == '':
         return jsonify({'error': 'No selected file'}), 400
     
-    if file:
+    if file:        
         file_content = file.read()
-        file = ReadFile(file)
         base64_image = base64.b64encode(file_content).decode('utf-8')
-        
-        
-        return jsonify(base64_image)
+        res = ReadFile(base64_image)
+        if res == 'true':
+            return jsonify({'message': 'File processed successfully'})
+        else:
+            return jsonify({'message': 'Failed to process file'})
     
-    return jsonify({'error': 'Failed to process file'}), 500
+    return jsonify({'error': 'error to read file'}), 500
 
 
 if __name__ == '__main__':
