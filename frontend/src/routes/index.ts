@@ -1,7 +1,7 @@
 import { lazy } from "react";
 
 const Home = lazy(() => import("../pages/home"));
-const Transfer = lazy(() => import("../pages/transfer"));
+const Detail = lazy(() => import("../pages/detail"));
 
 const routes = [
   {
@@ -10,9 +10,9 @@ const routes = [
     component: Home,
   },
   {
-    path: "/transfer",
-    title: "Transfer",
-    component: Transfer,
+    path: "/Detail",
+    title: "Detail",
+    component: Detail,
   },
 ];
 

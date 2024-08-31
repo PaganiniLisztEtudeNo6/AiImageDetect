@@ -1,0 +1,27 @@
+/* loading.css */
+.loader-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.loader-overlay.visible {
+    opacity: 1;
+}
+
+.image-container {
+    transition: opacity 0.5s ease;
+}
+
+.image-container.fade {
+    opacity: 0.5;
+}
