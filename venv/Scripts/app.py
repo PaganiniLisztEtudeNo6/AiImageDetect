@@ -7,19 +7,6 @@ from Ai import ReadFile
 app = Flask(__name__)
 CORS(app)
 
-
-@app.route('/hello', methods=['GET'])
-def hello():
-    a = add_numbers(8, 2)
-    return jsonify({'output': a , 'message': 'Hello World!'})
-
-
-@app.route('/testPost', methods=['POST'])
-def testPost():
-    a = request.json['a']
-    b = request.json['b']
-    return jsonify({'a': a , 'b': b})
-
 @app.route('/login', methods=['POST'])
 def login():
     user = "sakthan"
@@ -28,13 +15,6 @@ def login():
         return jsonify({'message': 'Login successful'})
     else:
         return jsonify({'message': 'Login failed'})
-
-@app.route('/login2', methods=['GET'])
-def login2():
-    a = int (input("Enter a number: "))
-    b = int (input("Enter a number: "))
-    num = add_numbers(a,b)
-    return jsonify({'num': num})
 
 
 @app.route('/uploadImage', methods=['POST'])
