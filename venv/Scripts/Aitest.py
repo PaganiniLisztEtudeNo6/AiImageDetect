@@ -4,8 +4,8 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import os
 
 base_dir = os.path.join(os.getcwd())
-train_dir = os.path.join(base_dir, 'train')
-validation_dir = os.path.join(base_dir, 'validation')
+train_dir = os.path.join(base_dir, 'C:/Users/Hp/Downloads/archive (1)/flowers')
+validation_dir = os.path.join(base_dir, 'C:/Users/Hp/Downloads/archive (1)/flowers')
 
 train_datagen = ImageDataGenerator(
     rescale=1./255,

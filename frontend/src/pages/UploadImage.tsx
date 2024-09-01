@@ -9,10 +9,13 @@ import axios from "axios";
 export default function UploadImage() {
   const [base64Image, setBase64Image] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
+
       const reader = new FileReader();
+
       reader.onloadend = () => {
         const dataUrl = reader.result as string;
         const base64String = dataUrl.split(",")[1];
@@ -25,7 +28,7 @@ export default function UploadImage() {
   const handleSubmit = async () => {
     if (base64Image) {
       setLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+
       try {
         const formData = new FormData();
         const response = await fetch(`data:image/png;base64,${base64Image}`);
@@ -33,6 +36,7 @@ export default function UploadImage() {
         const file = new File([blob], "uploaded_image.png", {
           type: "image/png",
         });
+
         formData.append("file", file);
         const apiResponse = await axios.post(
           "http://localhost:5000/uploadImage",
@@ -43,9 +47,8 @@ export default function UploadImage() {
             },
           }
         );
-
-        console.log("Image Submitted");
         console.log("response:", apiResponse);
+        setLoading(false);
       } catch (error) {
         console.error("Error submitting image:", error);
       } finally {
