@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Box } from "@mui/material";
 import ReactLoading from "react-loading";
 import { PhotoIcon } from "@heroicons/react/24/outline";
@@ -9,6 +9,17 @@ import axios from "axios";
 export default function UploadImage() {
   const [base64Image, setBase64Image] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+
+  const test = (a: number, b: number, C: string) => {
+    if (C === "+") {
+      return a + b;
+    } else if (C === "-") {
+      return a - b;
+    }
+    return "error";
+  };
+
+  const a = test(5, 3, "/");
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -28,7 +39,6 @@ export default function UploadImage() {
   const handleSubmit = async () => {
     if (base64Image) {
       setLoading(true);
-
       try {
         const formData = new FormData();
         const response = await fetch(`data:image/png;base64,${base64Image}`);
@@ -36,7 +46,6 @@ export default function UploadImage() {
         const file = new File([blob], "uploaded_image.png", {
           type: "image/png",
         });
-
         formData.append("file", file);
         const apiResponse = await axios.post(
           "http://localhost:5000/uploadImage",
@@ -47,12 +56,11 @@ export default function UploadImage() {
             },
           }
         );
-        console.log("response:", apiResponse);
         setLoading(false);
       } catch (error) {
-        console.error("Error submitting image:", error);
+        console.error(error);
       } finally {
-        setLoading(false);
+        console.log("Finally block");
       }
     }
   };

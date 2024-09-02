@@ -1,1 +1,11 @@
 *pyc
+*pyo
+*pyd
+
+__pycache__/
+/lib/
+!venv/lib/site-packages/
+!venv/lib/site-packages/*
+!site-packages/*
+!site-packages/.gitkeep
+!site-packages/.gitignore
