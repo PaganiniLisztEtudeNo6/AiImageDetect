@@ -2,6 +2,7 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras.models import load_model
 from io import BytesIO
 from PIL import Image
+import numpy as np
 import base64
 
 model = load_model('flower_classification_model.h5')

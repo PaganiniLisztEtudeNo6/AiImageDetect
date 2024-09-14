@@ -2,10 +2,22 @@ import tensorflow as tf
 from tensorflow.keras import layers, models
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import os
+from PIL import Image
 
-base_dir = os.path.join(os.getcwd())
+
+# กำหนด path ให้ถูกต้อง
+base_dir = os.getcwd()
 train_dir = os.path.join(base_dir, 'C:/Users/Hp/Downloads/archive (1)/flowers')
 validation_dir = os.path.join(base_dir, 'C:/Users/Hp/Downloads/archive (1)/flowers')
+
+for subdir, dirs, files in os.walk(train_dir):
+    for file in files:
+        filepath = os.path.join(subdir, file)
+        try:
+            img = Image.open(filepath)
+            img.verify()  
+        except (IOError, SyntaxError) as e:
+            print(f'Bad file: {filepath}')  
 
 train_datagen = ImageDataGenerator(
     rescale=1./255,
@@ -34,7 +46,6 @@ validation_generator = validation_datagen.flow_from_directory(
     class_mode='categorical'
 )
 
-# สร้างโมเดล CNN
 model = models.Sequential([
     layers.Conv2D(32, (3, 3), activation='relu', input_shape=(224, 224, 3)),
     layers.MaxPooling2D((2, 2)),
@@ -71,4 +82,5 @@ history = model.fit(
     callbacks=[lr_scheduler]
 )
 
+# บันทึกโมเดล
 model.save('flower_classification_model.h5')
