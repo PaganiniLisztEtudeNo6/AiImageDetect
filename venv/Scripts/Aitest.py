@@ -4,20 +4,25 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import os
 from PIL import Image
 
+image_extensions = ['jpg', 'jpeg', 'png']
 
-# กำหนด path ให้ถูกต้อง
-base_dir = os.getcwd()
-train_dir = os.path.join(base_dir, 'C:/Users/Hp/Downloads/archive (1)/flowers')
-validation_dir = os.path.join(base_dir, 'C:/Users/Hp/Downloads/archive (1)/flowers')
+def check_image_files(directory):
+    for subdir, dirs, files in os.walk(directory):
+        for file in files:
+            if file.lower().split('.')[-1] in image_extensions:
+                filepath = os.path.join(subdir, file)
+                try:
+                    img = Image.open(filepath)
+                    img.verify()  
+                except (IOError, SyntaxError) as e:
+                    print(f'Bad file: {filepath}')
 
-for subdir, dirs, files in os.walk(train_dir):
-    for file in files:
-        filepath = os.path.join(subdir, file)
-        try:
-            img = Image.open(filepath)
-            img.verify()  
-        except (IOError, SyntaxError) as e:
-            print(f'Bad file: {filepath}')  
+base_dir = 'C:/Users/Hp/Downloads/archive (1)/flowers'
+train_dir = os.path.join(base_dir)  
+validation_dir = os.path.join(base_dir)  
+
+check_image_files(train_dir)
+check_image_files(validation_dir)
 
 train_datagen = ImageDataGenerator(
     rescale=1./255,
@@ -82,5 +87,4 @@ history = model.fit(
     callbacks=[lr_scheduler]
 )
 
-# บันทึกโมเดล
 model.save('flower_classification_model.h5')
