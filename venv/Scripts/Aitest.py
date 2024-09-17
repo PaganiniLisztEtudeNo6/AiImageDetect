@@ -7,8 +7,8 @@ from PIL import Image
 
 # กำหนด path ให้ถูกต้อง
 base_dir = os.getcwd()
-train_dir = os.path.join(base_dir, 'C:/Users/Hp/Downloads/archive (1)/flowers')
-validation_dir = os.path.join(base_dir, 'C:/Users/Hp/Downloads/archive (1)/flowers')
+train_dir = os.path.join(base_dir, 'C:/Users/sakth/Downloads/flowers')
+validation_dir = os.path.join(base_dir, 'C:/Users/sakth/Downloads/flowers')
 
 for subdir, dirs, files in os.walk(train_dir):
     for file in files:
@@ -83,4 +83,4 @@ history = model.fit(
 )
 
 # บันทึกโมเดล
-model.save('flower_classification_model.h5')
+model.save('flower_classification_modelv2.h5')
