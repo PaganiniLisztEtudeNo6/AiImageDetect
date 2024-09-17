@@ -5,7 +5,7 @@ from PIL import Image
 import numpy as np
 import base64
 
-model = load_model('flower_classification_modelv2.h5')
+model = load_model('flower_classification_model.h5')
 
 def ReadFile(base64_image):
     try:
