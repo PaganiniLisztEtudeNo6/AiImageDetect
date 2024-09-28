@@ -7,14 +7,14 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/login', methods=['POST'])
-def login():
-    user = "sakthan"
-    password = "12345"
-    if request.json['username'] == user and request.json['password'] == password:
-        return jsonify({'message': 'Login successful'})
-    else:
-        return jsonify({'message': 'Login failed'})
+#@app.route('/login', methods=['POST'])
+#def login():
+#    user = "sakthan"
+#    password = "12345"
+#    if request.json['username'] == user and request.json['password'] == password:
+#        return jsonify({'message': 'Login successful'})
+#    else:
+#        return jsonify({'message': 'Login failed'})
 
 @app.route('/uploadImage', methods=['POST'])
 def upload_image():

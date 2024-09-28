@@ -97,4 +97,5 @@ history = model.fit(
     callbacks=[lr_scheduler]
 )
 
+# บันทึกโมเดล
 model.save('flower_classification_model.h5')
