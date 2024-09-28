@@ -1,6 +1,6 @@
 // Home.js
 import UploadImage from "./UploadImage";
-import { Container , AppBar, Toolbar, Typography, Button } from "@mui/material";
+import { Container , AppBar, Toolbar, Typography } from "@mui/material";
 
 export default function Home() {
   return (
@@ -8,11 +8,8 @@ export default function Home() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" style={{ flexGrow: 1 }}>
-            My App
+            Flower Forever
           </Typography>
-          <Button color="inherit">Home</Button>
-          <Button color="inherit">About</Button>
-          <Button color="inherit">Contact</Button>
         </Toolbar>
       </AppBar>
       <Container>

@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "flask": "^0.2.10",
+    "react-router-dom": "^6.26.2",
     "requirement": "^0.0.8"
   }
 }
