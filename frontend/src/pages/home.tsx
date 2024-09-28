@@ -1,7 +1,6 @@
 // Home.js
 import UploadImage from "./UploadImage";
 import { Container , AppBar, Toolbar, Typography } from "@mui/material";
-
 export default function Home() {
   return (
     <div>
@@ -19,6 +18,7 @@ export default function Home() {
           </div>
         </div>
       </Container>
+      <p style={{ textAlign: "center"}}>ยังไม่สามารถอัพโหลดไฟล์ภาพที่เป็น png ได้</p>
     </div>
   );
 }
