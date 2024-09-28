@@ -7,7 +7,7 @@ export default function Home() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" style={{ flexGrow: 1 }}>
-            Flower Forever
+            <img src="scanurfather/img/botanica.png" alt="" sizes="" />
           </Typography>
         </Toolbar>
       </AppBar>
