@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button, Box } from "@mui/material";
 import ReactLoading from "react-loading";
 import { PhotoIcon } from "@heroicons/react/24/outline";
@@ -9,17 +9,6 @@ import axios from "axios";
 export default function UploadImage() {
   const [base64Image, setBase64Image] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-
-  const test = (a: number, b: number, C: string) => {
-    if (C === "+") {
-      return a + b;
-    } else if (C === "-") {
-      return a - b;
-    }
-    return "error";
-  };
-
-  const a = test(5, 3, "/");
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -48,7 +37,7 @@ export default function UploadImage() {
         });
         formData.append("file", file);
         const apiResponse = await axios.post(
-          "http://localhost:5000/uploadImage",
+          "http://127.0.0.1:8080/uploadImage",
           formData,
           {
             headers: {
@@ -56,6 +45,7 @@ export default function UploadImage() {
             },
           }
         );
+        console.log(apiResponse);
         setLoading(false);
       } catch (error) {
         console.error(error);

@@ -9,3 +9,7 @@ __pycache__/
 !site-packages/*
 !site-packages/.gitkeep
 !site-packages/.gitignore
+
+node_modules/
+npm-debug.log
+yarn-error.log

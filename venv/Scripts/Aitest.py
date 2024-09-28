@@ -7,22 +7,32 @@ from PIL import Image
 image_extensions = ['jpg', 'jpeg', 'png']
 
 def check_image_files(directory):
+    bad_files = []
     for subdir, dirs, files in os.walk(directory):
         for file in files:
             if file.lower().split('.')[-1] in image_extensions:
                 filepath = os.path.join(subdir, file)
                 try:
-                    img = Image.open(filepath)
-                    img.verify()  
+                    with Image.open(filepath) as img:
+                        img.verify()  
                 except (IOError, SyntaxError) as e:
                     print(f'Bad file: {filepath}')
+                    bad_files.append(filepath)
+    return bad_files
+
+def remove_bad_files(bad_files):
+    for file in bad_files:
+        os.remove(file)
+        print(f'Removed bad file: {file}')
 
 base_dir = 'C:/Users/Hp/Downloads/archive (1)/flowers'
 train_dir = os.path.join(base_dir)  
-validation_dir = os.path.join(base_dir)  
+validation_dir = os.path.join(base_dir)
 
-check_image_files(train_dir)
-check_image_files(validation_dir)
+bad_files_train = check_image_files(train_dir)
+bad_files_validation = check_image_files(validation_dir)
+remove_bad_files(bad_files_train)
+remove_bad_files(bad_files_validation)
 
 train_datagen = ImageDataGenerator(
     rescale=1./255,
