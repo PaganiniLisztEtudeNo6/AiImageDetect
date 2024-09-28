@@ -19,7 +19,7 @@ def ReadFile(base64_image):
         prediction = model.predict(img_array)
         predicted_class = np.argmax(prediction[0])
 
-        class_indices = {'daisy': 0, 'dandelion': 1, 'rose': 2, 'sunflower': 3, 'tulip': 4}
+        class_indices = { 'blackeyed': 0, 'calendula': 1, 'daisy': 2, 'dandelion': 3, 'rose': 4, 'sunflower': 5, 'tulip': 6}
         class_name = list(class_indices.keys())
         predicted_class_name = class_name[predicted_class]
 
