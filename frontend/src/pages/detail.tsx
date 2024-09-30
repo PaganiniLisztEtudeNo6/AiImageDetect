@@ -1,12 +1,12 @@
-
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./style.css";
 import { Container, Typography, AppBar, Toolbar } from "@mui/material";
 import { useEffect, useState } from "react";
+import logo from '../logo/botanica.png';
 
-export default function transfer() {
-
+export default function Transfer() {
   const location = useLocation();
+  const navigate = useNavigate();
   const { detail, img } = location.state || {};
   const [imageUrl, setImageUrl] = useState<string | null>(null);
 
@@ -14,9 +14,6 @@ export default function transfer() {
     const mime = "image/png";
     return base64ToBlob(base64Image, mime);
   };
-
-  const imageBlob = img ? convertBase64ToBlob(`data:image/png;base64,${img}`) : null;
-
 
   function base64ToBlob(base64: string, mime: string) {
     const byteString = atob(base64.split(",")[1]);
@@ -29,19 +26,33 @@ export default function transfer() {
   }
 
   useEffect(() => {
-    if (img) {
-      const imageBlob = convertBase64ToBlob(`data:image/png;base64,${img}`);
-      const imageUrl = URL.createObjectURL(imageBlob);
-      setImageUrl(imageUrl);
-    }
+    const loadImage = async () => {
+      try {
+        if (img) {
+          const imageBlob = convertBase64ToBlob(`data:image/png;base64,${img}`);
+          const imageUrl = URL.createObjectURL(imageBlob);
+          setImageUrl(imageUrl);
+        }
+      } catch (error) {
+        console.log("Error:", error);
+      } finally {
+        console.log("Finally");
+      }
+    };
+
+    loadImage();
   }, [img]);
+
+  const handleLogoClick = () => {
+    navigate("/"); // เปลี่ยนเส้นทางเมื่อคลิกที่โลโก้
+  };
 
   return (
     <div>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" style={{ flexGrow: 1 }}>
-            <img src="scanurfather/img/botanica.png" alt="" sizes="" />
+            <img src={logo} alt="" width={"100px"} height={"100px"} onClick={handleLogoClick}/>
           </Typography>
         </Toolbar>
       </AppBar>
