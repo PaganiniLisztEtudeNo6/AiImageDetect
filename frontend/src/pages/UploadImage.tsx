@@ -46,7 +46,9 @@ export default function UploadImage() {
         setLoading(false);
       navigate("/detail", { state: { detail: apiResponse.data , img : base64Image } });
       } catch (error) {
+        console.log("error");
       } finally {
+        console.log("Finally");
       }
     }
   };

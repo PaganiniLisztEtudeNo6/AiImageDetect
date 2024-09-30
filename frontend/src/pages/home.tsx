@@ -1,13 +1,15 @@
 // Home.js
 import UploadImage from "./UploadImage";
-import { Container , AppBar, Toolbar, Typography } from "@mui/material";
+import { Container, AppBar, Toolbar, Typography } from "@mui/material";
+import logo from '../src/logo/botanica.png'
+
 export default function Home() {
   return (
     <div>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" style={{ flexGrow: 1 }}>
-            <img src="scanurfather/img/botanica.png" alt="" sizes="" />
+            <img src={logo} alt="" />
           </Typography>
         </Toolbar>
       </AppBar>
