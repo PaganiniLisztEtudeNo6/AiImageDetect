@@ -3,22 +3,17 @@ import { Button, Box } from "@mui/material";
 import ReactLoading from "react-loading";
 import { PhotoIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
-
 import "./loading.css";
 import axios from "axios";
 
 export default function UploadImage() {
   const [base64Image, setBase64Image] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-
   const navigate = useNavigate();
-
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
-
       const reader = new FileReader();
-
       reader.onloadend = () => {
         const dataUrl = reader.result as string;
         const base64String = dataUrl.split(",")[1];
@@ -48,14 +43,10 @@ export default function UploadImage() {
             },
           }
         );
-        console.log(apiResponse);
         setLoading(false);
-
-        navigate("/detail");
+      navigate("/detail", { state: { detail: apiResponse.data , img : base64Image } });
       } catch (error) {
-        console.error(error);
       } finally {
-        console.log("Finally block");
       }
     }
   };
