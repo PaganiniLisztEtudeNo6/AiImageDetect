@@ -2,6 +2,7 @@
 import UploadImage from "./UploadImage";
 import { Container, AppBar, Toolbar, Typography } from "@mui/material";
 import logo from '../logo/botanica.png';
+import { BoldIcon } from "@heroicons/react/24/outline";
 
 export default function Home() {
   
@@ -21,7 +22,7 @@ export default function Home() {
           </div>
         </div>
       </Container>
-      <p style={{ textAlign: "center"}}>ยังไม่สามารถอัพโหลดไฟล์ภาพที่เป็น png ได้</p>
+      <p style={{ textAlign: "center", fontWeight: "bold", marginBottom: "100px", marginTop: "-20px" }}>ยังไม่สามารถอัพโหลดไฟล์ภาพที่เป็น png ได้</p>
     </div>
   );
 }
