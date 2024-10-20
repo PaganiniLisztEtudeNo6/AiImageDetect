@@ -22,7 +22,7 @@ export default function Home() {
           </div>
         </div>
       </Container>
-      <p style={{ textAlign: "center", fontWeight: "bold", marginBottom: "100px", marginTop: "-20px" }}>ยังไม่สามารถอัพโหลดไฟล์ภาพที่เป็น png ได้</p>
+      <p style={{ textAlign: "center", fontWeight: "bold", marginBottom: "100px", marginTop: "-20px" }}>ยังไม่สามารถอัพโหลดไฟล์ภาพที่เป็น png</p>
     </div>
   );
 }
