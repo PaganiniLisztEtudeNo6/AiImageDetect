@@ -119,14 +119,17 @@ export default function Transfer() {
   };
 
   return (
-    <div>
-      <AppBar position="static">
+    <div style={{ flexGrow: 1 ,backgroundColor: "#f5f5dc"}}>
+      <AppBar position="static" style={{ flexGrow: 1 ,backgroundColor: "#556b2f"}}>
         <Toolbar>
           <Typography variant="h6" style={{ flexGrow: 1 }}>
-            <img src={logo} alt="" width={"100px"} height={"100px"} onClick={handleLogoClick} />
+            <img src={logo} alt="" width={"100px"} height={"100px"} onClick={handleLogoClick} style={{ display: "inline-block" , cursor: "pointer" }} /> <strong style={{ fontWeight: "bold" , fontSize: "21px"}}>Flower Forever</strong>
           </Typography>
         </Toolbar>
       </AppBar>
+      <p style={{ textAlign: "center", fontWeight: "bold" , marginBottom: "-80px" , marginTop: "80px" , fontSize: "30px" ,color: "gray"}}>
+        <strong>ALREADY SCAN</strong>
+      </p>
       <Container>
         <div className="flex items-center justify-center h-screen grid">
           <div className="max-h-70 w-100 px-24 py-12 bg-white border-0 shadow-lg sm:rounded-3x1">

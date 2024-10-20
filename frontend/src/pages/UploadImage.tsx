@@ -22,6 +22,25 @@ export default function UploadImage() {
       reader.readAsDataURL(file);
     }
   };
+  const buttonStyle = {
+    backgroundColor: "#9caf88", /* Sage Green */
+  }
+
+  const hoverStyle = {
+    backgroundColor: "#556b2f", /* Olive Green */
+  };
+
+    const [isHovered, setIsHovered] = React.useState(false);
+
+    const buttonStyles = {
+      backgroundColor: "#9caf88", /* Sage Green */
+    }
+  
+    const hoverStyles = {
+      backgroundColor: "#556b2f", /* Olive Green */
+    };
+  
+    const [isHovereds, setIsHovereds] = React.useState(false);
 
   const handleSubmit = async () => {
     if (base64Image) {
@@ -64,12 +83,16 @@ export default function UploadImage() {
       />
       <div className="flex justify-between">
         <label htmlFor="upload-button" className="pr-3">
-          <Button variant="contained" component="span">
+          <Button variant="contained" component="span" style={isHovereds ? { ...buttonStyles, ...hoverStyles } : buttonStyles}
+          onMouseEnter={() => setIsHovereds(true)}
+          onMouseLeave={() => setIsHovereds(false)}>
             Upload Image
           </Button>
         </label>
         <label htmlFor="handleSubmit">
-          <Button variant="contained" component="span" onClick={handleSubmit}>
+          <Button variant="contained" component="span" onClick={handleSubmit} style={isHovered ? { ...buttonStyle, ...hoverStyle } : buttonStyle}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}>
             Submit
           </Button>
         </label>
